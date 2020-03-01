@@ -5,7 +5,18 @@
 
 a {
   color: rgb(11, 115, 242);
+  text-decoration: none;
 }
+
+/* #stripes {
+  width: 200px;
+  height: 15px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-top-right-radius: 10px;
+} */
 
 h1 {
   font-family: 'Squada One';
