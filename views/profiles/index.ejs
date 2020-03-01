@@ -7,7 +7,15 @@
     <title>Profile Page</title>
 </head>
 <body>
-    <h1>Party Texas</h1>
+    <header class="header">
+        <nav>
+          <h1>KEEP TEXAS WILD</h1>
+          <button>National Parks</button>
+          <button>State Parks</button>
+          <button>Add Parks</button>
+        </nav>
+        <div id="stripes"></div>
+    </header>
     <form action="/profiles" method="POST">
         <label>Full Name:</label>
         <input type="text" name="name">
@@ -15,6 +23,11 @@
         <input type="text" name="email">
         <label>Phone Number:</label>
         <input type="Number" name="phone">
+        <label for="about">About Me</label>
+        <textarea name="about-content" id="about"></textarea>
+        <label for="journal">Add Journal Entry</label>
+        <textarea name="journal-content" id="about"></textarea>
+        <input type="submit" value="Save Changes">
     </form>
 </body>
 </html>

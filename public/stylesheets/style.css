@@ -31,7 +31,7 @@ body {
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-header {
+.header {
   height: 15vh;
   background-color: rgb(30, 56, 121);
   display: flex;

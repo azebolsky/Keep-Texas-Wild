@@ -1,9 +1,10 @@
 const Profile = require('../models/user');
 
 module.exports = {
-    new: newProfile
+    // new: newProfile,
+    index
 }
 
-function newProfile(req, res) {
-    
+function index(req, res) {
+    res.render('profiles/index');
 }
