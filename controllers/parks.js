@@ -3,7 +3,15 @@ const Parks = require('../models/park');
 module.exports = {
     index,
     new: newPark,
-    create
+    create,
+    show
+}
+
+function show(req, res) {
+    Parks.findById(req.params.id, function(err, park) {
+        console.log(req.params.id);
+        res.render('parks/show', {park});
+    });
 }
 
 function create(req, res) {

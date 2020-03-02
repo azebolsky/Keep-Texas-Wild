@@ -11,7 +11,7 @@
 <body>
     <header class="header">
         <nav id="parks-nav">
-          <h3>National and State Parks</h3>
+          <h3>Texas Parks</h3>
           <a class="add-park" href="/parks/new">Add Parks</a>
           <a href="/profiles">View Profile</a>
         </nav>
@@ -20,17 +20,34 @@
         <thead>
             <tr>
                 <th>Rating</th>
-                <th>Park</th>
+                <th>National Parks</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             <% parks.forEach(function(p) { %>
                 <tr>
-                    <td></td>
-                    <td><%= p.parkName %></td>
-                    <td><a href="/parks/<%= p._id %>">Details</a></td>
-                    <td><a href="">Reviews</a></td>
+                    <% if (p.parkType === 'National') { %> 
+                        <td></td>
+                        <td><%= p.parkName %></td>
+                        <td><a href="/parks/<%= p._id %> ">Details</a></td>
+                        <td><a href="">Reviews</a></td>
+                    <% } %> 
+                </tr>
+            <% }) %>
+            <tr>
+                <th>Rating</th>
+                <th>State Parks</th>
+                <th></th>
+            </tr>
+            <% parks.forEach(function(p) { %>
+                <tr>
+                    <% if (p.parkType === 'State') { %> 
+                        <td></td>
+                        <td><%= p.parkName %></td>
+                        <td><a href="/parks/<%= p._id %> ">Details</a></td>
+                        <td><a href="">Reviews</a></td>
+                    <% } %> 
                 </tr>
             <% }) %>
         </tbody>
