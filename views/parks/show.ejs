@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
     <title>Park Details</title>
 </head>
 <body>
@@ -15,5 +16,34 @@
           <a href="/profiles">View Profile</a>
         </nav>
     </header>
+    <section>
+        <h3>Park Details</h3>
+        <% parks.forEach(function(p) { %> 
+            <div>Lake: </div>
+            <div><%= p.hasLake %></div>
+            <div>Amount of Trails: </div>
+            <div><%= p.numTrails %></div>
+            <div>Primitive Camping: </div>
+            <div><%= p.hasPrimitiveCamping %></div>
+            <div>See below reviews:</div>
+            <% if (p.reviews) { %> 
+                <div><%= p.reviews %></div>
+            <% } else { %> 
+                <h3>No reviews yet!</h3>
+            <% } %> 
+        <% )} %>
+    </section>
+    <form action="/parks/<%= p._id %>">
+        <label>Add Review: </label>
+        <textarea name="reviews"></textarea>
+        <label></label>
+        <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </form>
 </body>
 </html>

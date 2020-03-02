@@ -30,8 +30,7 @@
                     <% if (p.parkType === 'National') { %> 
                         <td></td>
                         <td><%= p.parkName %></td>
-                        <td><a href="/parks/<%= p._id %> ">Details</a></td>
-                        <td><a href="">Reviews</a></td>
+                        <td><a href="/parks/<%= p._id %> ">Details and Reviews</a></td>
                     <% } %> 
                 </tr>
             <% }) %>
@@ -45,8 +44,7 @@
                     <% if (p.parkType === 'State') { %> 
                         <td></td>
                         <td><%= p.parkName %></td>
-                        <td><a href="/parks/<%= p._id %> ">Details</a></td>
-                        <td><a href="">Reviews</a></td>
+                        <td><a href="/parks/<%= p._id %> ">Details and Reviews</a></td>
                     <% } %> 
                 </tr>
             <% }) %>

@@ -9,7 +9,7 @@ function create(req, res) {
     const profile = new Profile(req.body);
     profile.save(function(err) {
         if (err) return res.render('profiles/new');
-        res.redirect(`/profiles/${profile._id}`);
+        res.redirect('/profiles');
     });
 }
 

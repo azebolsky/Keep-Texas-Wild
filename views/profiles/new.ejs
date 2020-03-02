@@ -15,8 +15,21 @@
           <a href="/parks">All Parks</a>
           <a href="parks/new">Add Parks</a>
         </nav>
-        <div id="stripes"></div>
     </header>
+    <% if (profile) { %>
+        <section>
+            <div>Name: </div>
+            <div><%= profile.name %></div>
+            <div>Email: </div>
+            <div><%= profile.email %></div>
+            <div>Phone: </div>
+            <div><%= profile.phoneNumber %></div>
+            <div>About: </div>
+            <div><%= profile.aboutInfo %></div>
+            <div>Journal Entries: </div>
+            <div><%= profile.journal %></div>
+        </section>
+    <% } else { %> 
         <form action="/profiles" method="POST">
             <label>Full Name:</label>
             <input type="text" name="name">
@@ -28,5 +41,6 @@
             <textarea name="journal" id="about"></textarea>
             <input type="submit" value="Save Changes">
         </form>
+    <% } %> 
 </body>
 </html>
