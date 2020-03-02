@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
+    <title>New State Park</title>
+</head>
+<body>
+    <header class="header">
+        <nav>
+          <h3>New Parks</h3>
+          <a href="/parks">Parks</a>
+          <a href="/profiles">Your Profile</a>
+        </nav>
+    </header>
+    <h4>Enter Below Park Information</h4>
+    <form action="/parks" method="POST">
+        <div>
+            <label>Park Name
+                <input type="text" name="parkName">
+            </label>
+        </div>
+        <div>
+            Type of Park
+            <select name="parkType">
+                <option value="State">State</option>
+                <option value="National" disabled>National</option>
+            </select>
+        </div>
+        <div>
+            <label>Does the park have a lake?
+                <input type="checkbox" name="hasLake">
+            </label>
+        </div>
+        <div>
+            <label>How many trails does the park have?
+                <input type="number" min="0" max="100" name="numTrails">
+            </label>
+        </div>
+        <div>
+            <label>Do they have hike-in (primitive) campsites?
+                <input type="checkbox" name="hasPrimitiveCamping">
+            </label>
+        </div>
+        <input type="submit" value="Submit New Park">
+    </form>
+</body>
+</html>

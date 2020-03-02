@@ -3,7 +3,7 @@
   margin: 0;
 }
 
-a {
+.login, a {
   color: rgb(11, 115, 242);
   text-decoration: none;
 }
@@ -27,6 +27,15 @@ h1 {
   text-shadow: 0 4px 0 red;
 }
 
+h3 {
+  font-family: 'Squada One';
+  font-size: 40px;
+  font-weight: 200;
+  margin-left: 30px;
+  color: rgb(237, 221, 156);
+  text-shadow: 0 3px 0 red;
+}
+
 body {
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -36,6 +45,7 @@ body {
   background-color: rgb(30, 56, 121);
   display: flex;
   align-items: center;
+  flex-direction: row;
 }
 
 #container {

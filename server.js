@@ -8,7 +8,7 @@ var logger = require('morgan');
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
-var campersRouter = require('./routes/campers');
+var campersRouter = require('./routes/users');
 const profilesRouter = require('./routes/profiles');
 const parksRouter = require('./routes/parks');
 
@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/campers', campersRouter);
 app.use('/', profilesRouter);
-app.use('/', parksRouter);
+app.use('/parks', parksRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

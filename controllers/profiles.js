@@ -1,4 +1,4 @@
-const Profile = require('../models/user');
+const Profile = require('../models/profile');
 
 module.exports = {
     new: newProfile,
@@ -6,9 +6,11 @@ module.exports = {
 }
 
 function create(req, res) {
-    Profile.create(req.body, function(err, profile) {
-        res.redirect('/profiles');
-    })
+    const profile = new Profile(req.body);
+    profile.save(function(err) {
+        if (err) return res.render('profiles/new');
+        res.redirect(`/profiles/${profile._id}`);
+    });
 }
 
 function newProfile(req, res) {

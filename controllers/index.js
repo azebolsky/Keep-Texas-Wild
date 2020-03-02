@@ -1,4 +1,4 @@
-const User = require('../models/camper');
+const User = require('../models/user');
 
 module.exports = {
     index
