@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>National Parks</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Park</th>
+                <th>Type</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% parks.forEach(function(p) { %>
+                <tr>
+                    <td><%= p.name %></td>
+                    <td><%= p.parkType %></td>
+                    <td><a href="/parks/<%= p._id %>">Park Details</a></td>
+                </tr>
+            <% }) %> 
+        </tbody>
+    </table>
+</body>
+</html>

@@ -20,7 +20,7 @@ const parkSchema = new Schema({
     numTrails: {
         type: Number,
         min: 0,
-        max: 20,
+        max: 100,
         required: true
     },
     hasElectricCamping: {
