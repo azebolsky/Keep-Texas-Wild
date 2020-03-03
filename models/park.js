@@ -23,10 +23,6 @@ const parkSchema = new Schema({
         max: 100,
         required: true
     },
-    hasElectricCamping: {
-        type: Boolean,
-        default: false
-    },
     hasPrimitiveCamping: {
         type: Boolean,
         default: false
@@ -36,7 +32,10 @@ const parkSchema = new Schema({
         enum: ['National', 'State']
     },
     reviews: [reviewSchema],
-    favorites: [{}]
+    favorites: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Profile'
+    }]
 }, {
     timestamps: true
 });

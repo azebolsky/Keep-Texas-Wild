@@ -11,29 +11,27 @@
 <body>
     <header class="header">
         <nav id="parks-nav">
-          <h3>p.parkName</h3>
+          <h3><%= park.parkName %></h3>
           <a href="/parks">View All Parks</a>
           <a href="/profiles">View Profile</a>
         </nav>
     </header>
     <section>
-        <h3>Park Details</h3>
-        <% parks.forEach(function(p) { %> 
+        <h3>Park Details</h3> 
             <div>Lake: </div>
-            <div><%= p.hasLake %></div>
+            <div><%= park.hasLake %></div>
             <div>Amount of Trails: </div>
-            <div><%= p.numTrails %></div>
+            <div><%= park.numTrails %></div>
             <div>Primitive Camping: </div>
-            <div><%= p.hasPrimitiveCamping %></div>
+            <div><%= park.hasPrimitiveCamping %></div>
             <div>See below reviews:</div>
-            <% if (p.reviews) { %> 
-                <div><%= p.reviews %></div>
+            <% if (park.reviews) { %> 
+                <div><%= park.reviews %></div>
             <% } else { %> 
                 <h3>No reviews yet!</h3>
             <% } %> 
-        <% )} %>
     </section>
-    <form action="/parks/<%= p._id %>">
+    <form action="/parks/<%= park._id %>">
         <label>Add Review: </label>
         <textarea name="reviews"></textarea>
         <label></label>

@@ -17,6 +17,7 @@
         </nav>
     </header>
     <% if (profile) { %>
+        <div>Please add your profile information below:</div>
         <section>
             <div>Name: </div>
             <div><%= profile.name %></div>
@@ -30,7 +31,7 @@
             <div><%= profile.journal %></div>
         </section>
     <% } else { %> 
-        <form action="/profiles" method="POST">
+        <form action="/profiles/new" method="POST">
             <label>Full Name:</label>
             <input type="text" name="name">
             <label>Phone Number:</label>

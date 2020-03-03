@@ -2,14 +2,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const profileSchema = new Schema({
-    _id: {
-        type: Schema.Types.ObjectId
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     },
     aboutInfo: {
         type: String,
         required: true
     },
-    journal: [],
+    // journal: [],
     phoneNumber: {
         type: Number,
         required: true

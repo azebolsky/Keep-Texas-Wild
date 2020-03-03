@@ -8,11 +8,17 @@ module.exports = {
 function create(req, res) {
     const profile = new Profile(req.body);
     profile.save(function(err) {
+        console.log(profile);
         if (err) return res.render('profiles/new');
         res.redirect('/profiles');
     });
 }
 
 function newProfile(req, res) {
-    res.render('profiles/new');
+    console.log('line 19');
+    Profile.find({}, function(err, profile) {
+        res.render('profiles/new', {
+            profile
+        });
+    });
 }
