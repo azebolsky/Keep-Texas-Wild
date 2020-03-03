@@ -7,7 +7,7 @@
     <title>My Profile</title>
 </head>
 <body>
-    <h1>Here's your Profile Dummy:</h1>
+    <h1>Welcome User:</h1>
     <% if (profile) { %>
         <section>
             <% profile.forEach(function(p) { %>
@@ -17,9 +17,10 @@
                 <div><%= p.phoneNumber %></div>
                 <div>About: </div>
                 <div><%= p.aboutInfo %></div>
+                <a href="/profiles/<%=p._id%>/edit">Edit Profile</a>
             <% }) %> 
         </section>
-    <% } %> 
-    <button><a href="/profiles/new">Add or Update Profile</a></button>
+    <% } %>
+    <button><a href="/profiles/new">Add Profile</a></button>
 </body>
 </html>

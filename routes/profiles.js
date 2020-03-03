@@ -6,5 +6,7 @@ const profilesCtrl = require('../controllers/profiles');
 router.get('/profiles/new', profilesCtrl.new);
 router.post('/profiles', profilesCtrl.create);
 router.get('/profiles', profilesCtrl.index);
+router.get('/profiles/:id/edit', profilesCtrl.edit);
+router.put('/profiles', profilesCtrl.update);
 
 module.exports = router;

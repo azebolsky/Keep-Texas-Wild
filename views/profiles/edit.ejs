@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
+    <title>Edit Profile Page</title>
+</head>
+<body>
+    <header class="header">
+        <nav>
+          <h3>Welcome User</h3>
+          <a href="/parks">All Parks</a>
+        </nav>
+    </header>
+    <div>Edit below profile items:</div>
+    <% profile.forEach(function(p) { %>
+        <form action="/profiles" method="POST">
+            <label>Full Name:</label>
+            <input type="text" name="fullName" value="<%= p.fullName %>">
+            <label>Phone Number:</label>
+            <input type="Number" name="phoneNumber" value="<%= p.phoneNumber %>">
+            <label for="about">About Me</label>
+            <textarea name="aboutInfo" id="about" value="<%= p.aboutInfo %> "></textarea>
+            <input type="submit" value="Save Changes">
+        </form>
+    <% }) %> 
+</body>
+</html>

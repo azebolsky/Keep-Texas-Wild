@@ -3,7 +3,23 @@ const Profile = require('../models/profile');
 module.exports = {
     new: newProfile,
     create,
-    index
+    index,
+    edit,
+    update
+}
+
+function update(req, res) {
+    Profile.update(req.body, req.params.id);
+    // console.log(`${req.body} and ${req.params.id}`)
+    res.redirect('/profiles');
+}
+
+function edit(req, res) {
+    Profile.findById((req.params.id), function(err, profile) {
+        // if (!profile.user.equals(req.user._id)) return res.redirect('/profiles');
+        console.log(profile);
+        res.render('profiles/edit', {profile});
+    });
 }
 
 function index(req, res) {
