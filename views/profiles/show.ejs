@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Profile</title>
+</head>
+<body>
+    <h1>Welcome User:</h1>
+    <% if (profile) { %>
+        <section>
+            <div>Name: </div>
+            <div><%= profile.fullName %></div>
+            <div>Phone: </div>
+            <div><%= profile.phoneNumber %></div>
+            <div>About: </div>
+            <div><%= profile.aboutInfo %></div>
+            <a href="/profiles/<%=profile._id%>/edit">Edit Profile</a>
+        </section>
+    <% } else { %>
+        <a href="/profiles/new">Add Profile</a>
+    <% } %>
+    <a href="/parks">All Parks</a>
+</body>
+</html>

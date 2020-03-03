@@ -4,9 +4,10 @@ const profilesCtrl = require('../controllers/profiles');
 
 // GET /profiles/index
 router.get('/profiles/new', profilesCtrl.new);
+router.get('/profiles/:id', profilesCtrl.show);
 router.post('/profiles', profilesCtrl.create);
-router.get('/profiles', profilesCtrl.index);
 router.get('/profiles/:id/edit', profilesCtrl.edit);
-router.put('/profiles', profilesCtrl.update);
+router.put('/profiles/:id', profilesCtrl.update);
+
 
 module.exports = router;

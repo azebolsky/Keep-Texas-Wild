@@ -16,16 +16,14 @@
         </nav>
     </header>
     <div>Edit below profile items:</div>
-    <% profile.forEach(function(p) { %>
-        <form action="/profiles" method="POST">
-            <label>Full Name:</label>
-            <input type="text" name="fullName" value="<%= p.fullName %>">
-            <label>Phone Number:</label>
-            <input type="Number" name="phoneNumber" value="<%= p.phoneNumber %>">
-            <label for="about">About Me</label>
-            <textarea name="aboutInfo" id="about" value="<%= p.aboutInfo %> "></textarea>
-            <input type="submit" value="Save Changes">
-        </form>
-    <% }) %> 
+    <form action="/profiles/<%= profile._id%>?_method=PUT" method="POST">
+        <label>Full Name:</label>
+        <input type="text" name="fullName" value="<%= profile.fullName %>">
+        <label>Phone Number:</label>
+        <input type="Number" name="phoneNumber" value="<%= profile.phoneNumber %>">
+        <label for="about">About Me</label>
+        <textarea name="aboutInfo" id="about"><%= profile.aboutInfo %></textarea>
+        <input type="submit" value="Save Changes">
+    </form>
 </body>
 </html>

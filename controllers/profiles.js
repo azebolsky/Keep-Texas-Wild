@@ -3,15 +3,16 @@ const Profile = require('../models/profile');
 module.exports = {
     new: newProfile,
     create,
-    index,
+    show,
     edit,
     update
 }
 
 function update(req, res) {
-    Profile.update(req.body, req.params.id);
-    // console.log(`${req.body} and ${req.params.id}`)
-    res.redirect('/profiles');
+    // Profile.update(req.body, req.params.id);
+    Profile.findByIdAndUpdate(req.params.id, req.body, function() {
+        res.redirect(`/profiles/${req.params.id}`);
+    });
 }
 
 function edit(req, res) {
@@ -22,12 +23,10 @@ function edit(req, res) {
     });
 }
 
-function index(req, res) {
-    Profile.find({}, function(err, profile) {
-        res.render('profiles/index', {
-            profile
-        });
-    });
+function show(req, res) {
+    Profile.findById(req.params.id, function(err, profile) {
+        res.render('profiles/show', { profile });
+    })
 }
 
 function create(req, res) {
