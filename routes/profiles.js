@@ -3,7 +3,8 @@ const router = express.Router();
 const profilesCtrl = require('../controllers/profiles');
 
 // GET /profiles/index
-router.get('/new', profilesCtrl.new);
-router.post('/', profilesCtrl.create);
+router.get('/profiles/new', profilesCtrl.new);
+router.post('/profiles', profilesCtrl.create);
+router.get('/profiles', profilesCtrl.index);
 
 module.exports = router;

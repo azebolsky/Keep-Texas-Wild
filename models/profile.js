@@ -6,6 +6,10 @@ const profileSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    fullName: {
+        type: String,
+        required: true
+    },
     aboutInfo: {
         type: String,
         required: true
@@ -13,6 +17,7 @@ const profileSchema = new Schema({
     // journal: [],
     phoneNumber: {
         type: Number,
+        match: /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/,
         required: true
     }
 }, {

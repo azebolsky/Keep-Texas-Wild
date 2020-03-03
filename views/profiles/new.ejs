@@ -13,35 +13,18 @@
         <nav>
           <h3>Welcome User</h3>
           <a href="/parks">All Parks</a>
-          <a href="parks/new">Add Parks</a>
+          <a href="/parks/new">Add Parks</a>
         </nav>
     </header>
-    <% if (profile) { %>
-        <div>Please add your profile information below:</div>
-        <section>
-            <div>Name: </div>
-            <div><%= profile.name %></div>
-            <div>Email: </div>
-            <div><%= profile.email %></div>
-            <div>Phone: </div>
-            <div><%= profile.phoneNumber %></div>
-            <div>About: </div>
-            <div><%= profile.aboutInfo %></div>
-            <div>Journal Entries: </div>
-            <div><%= profile.journal %></div>
-        </section>
-    <% } else { %> 
-        <form action="/profiles/new" method="POST">
-            <label>Full Name:</label>
-            <input type="text" name="name">
-            <label>Phone Number:</label>
-            <input type="Number" name="phoneNumber">
-            <label for="about">About Me</label>
-            <textarea name="aboutInfo" id="about"></textarea>
-            <label for="journal">Add Journal Entry</label>
-            <textarea name="journal" id="about"></textarea>
-            <input type="submit" value="Save Changes">
-        </form>
-    <% } %> 
+    <div>Please add your profile information below:</div>
+    <form action="/profiles" method="POST">
+        <label>Full Name:</label>
+        <input type="text" name="fullName">
+        <label>Phone Number:</label>
+        <input type="Number" name="phoneNumber">
+        <label for="about">About Me</label>
+        <textarea name="aboutInfo" id="about"></textarea>
+        <input type="submit" value="Save Changes">
+    </form>
 </body>
 </html>
