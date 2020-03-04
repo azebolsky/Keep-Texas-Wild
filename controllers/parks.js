@@ -8,8 +8,7 @@ module.exports = {
 }
 
 function show(req, res) {
-    Parks.findById(req.params.id, function(err, park) {
-        console.log(req.params.id);
+    Parks.findById(req.params.id).populate('reviews.createdBy').exec(function(err, park) {
         res.render('parks/show', {park});
     });
 }

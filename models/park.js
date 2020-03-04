@@ -3,10 +3,14 @@ const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
     content: String,
+    createdBy: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
     rating: {type: Number, min: 1, max: 5, default: 3}
   }, {
     timestamps: true
-  });
+});
 
 const parkSchema = new Schema({
     parkName: {

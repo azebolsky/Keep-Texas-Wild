@@ -13,7 +13,6 @@
         <nav id="parks-nav">
           <h3><%= park.parkName %></h3>
           <a href="/parks">View All Parks</a>
-          <a href="/profiles">View Profile</a>
         </nav>
     </header>
     <section>
@@ -52,10 +51,10 @@
             <tbody>
                 <% park.reviews.forEach(function(p) { %>
                     <tr>
-                        <td> <%= p.createdAt.toLocaleDateString() %> </td>
-                        <td><%= p.userName %> </td>
-                        <td> <%= p.rating %> </td>
-                        <td> <%= p.content %> </td>
+                    <td> <%= p.createdAt.toLocaleDateString() %> </td>
+                    <td> <%= p.createdBy.name %> </td>
+                    <td> <%= p.rating %> </td>
+                    <td> <%= p.content %> </td>
                         <td><form action="/reviews/<%= p._id %>?_method=PUT" method="POST">
                             <input type="text" name="content" value="<%= p.content %> ">
                             <button type="submit">Update Review</button>
