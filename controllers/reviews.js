@@ -29,7 +29,6 @@ function update(req, res) {
 
 function create(req, res) {
     Parks.findById(req.params.id, function(err, park) {
-        // req.body.userId = req.user._id;
         req.body.createdBy = req.user._id;
         req.body.userName = req.user.name;
         console.log(req.body.userName);

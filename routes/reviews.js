@@ -7,8 +7,4 @@ router.post('/parks/:id/reviews', reviewsCtrl.create);
 router.put('/reviews/:id', isAuthenticated, reviewsCtrl.update);
 router.delete('/reviews/:id', isAuthenticated, reviewsCtrl.delete);
 
-
-
-
-
 module.exports = router;

@@ -6,23 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script defer src="/javascripts/script.js"></script>
     <title>Park Details</title>
 </head>
 <body>
     <header class="header">
         <nav id="parks-nav">
           <h3><%= park.parkName %></h3>
-          <a href="/parks">View All Parks</a>
+          <a href="/parks">All Parks</a>
+          <a href="/logout">Logout</a>
         </nav>
     </header>
     <section>
         <h3>Park Details</h3> 
             <div>Lake: </div>
-            <div><%= park.hasLake %></div>
+            <% if (park.hasLake === true) { %>
+                <div><%= 'yes' %></div>
+            <% } %> 
             <div>Amount of Trails: </div>
             <div><%= park.numTrails %></div>
             <div>Primitive Camping: </div>
-            <div><%= park.hasPrimitiveCamping %></div>
+            <% if (park.hasPrimitiveCamping === true) { %>
+                <div><%= 'yes' %></div>
+            <% } %> 
             <div>See below reviews:</div>
     </section>
     <form action="/parks/<%= park._id %>/reviews" method="POST">
@@ -48,22 +58,35 @@
                     <th>Review</th>
                 </tr>
             </thead>
-            <tbody>
-                <% park.reviews.forEach(function(p) { %>
+            <tbody class="body-edit">
+                <% let count = 0 %>
+                <% park.reviews.forEach(function(p, idx) { %>
+                    <% count+=p.rating %> 
                     <tr>
                     <td> <%= p.createdAt.toLocaleDateString() %> </td>
                     <td> <%= p.createdBy.name %> </td>
                     <td> <%= p.rating %> </td>
                     <td> <%= p.content %> </td>
-                        <td><form action="/reviews/<%= p._id %>?_method=PUT" method="POST">
-                            <input type="text" name="content" value="<%= p.content %> ">
-                            <button type="submit">Update Review</button>
-                        </form></td>
+                        <td>
+                            <form class="edit-form" data-set="<%= idx %>" action="/reviews/<%= p._id %>?_method=PUT" method="POST">
+                                <select name="rating" value="<%= p.rating %>">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <input type="text" name="content" value="<%= p.content %> ">
+                                <input type="submit" value="Submit Change">
+                            </form>
+                            <button data-set="<%= idx %>" class="edit-submit" type="submit">Update Review</button>
+                        </td>
                         <td><form action="/reviews/<%= p._id %>?_method=DELETE" method="POST">
                             <button type="submit">Delete Review</button>
                         </form></td>
                     </tr>
-                <% }); %>
+                    <% }); %>
+                    <td><%= (count / park.reviews.length).toFixed(1) %></td>
             </tbody>
         </table>
     <% } else { %>
