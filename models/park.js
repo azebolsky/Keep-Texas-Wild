@@ -20,7 +20,7 @@ const parkSchema = new Schema({
     numTrails: {
         type: Number,
         min: 0,
-        max: 100,
+        max: 50,
         required: true
     },
     hasPrimitiveCamping: {
@@ -34,7 +34,7 @@ const parkSchema = new Schema({
     reviews: [reviewSchema],
     favorites: [{
         type: Schema.Types.ObjectId,
-        ref: 'Profile'
+        ref: 'User'
     }]
 }, {
     timestamps: true

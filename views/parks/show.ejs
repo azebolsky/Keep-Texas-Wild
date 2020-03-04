@@ -25,16 +25,11 @@
             <div>Primitive Camping: </div>
             <div><%= park.hasPrimitiveCamping %></div>
             <div>See below reviews:</div>
-            <% if (park.reviews) { %> 
-                <div><%= park.reviews %></div>
-            <% } else { %> 
-                <h3>No reviews yet!</h3>
-            <% } %> 
     </section>
-    <form action="/parks/<%= park._id %>">
+    <form action="/parks/<%= park._id %>/reviews" method="POST">
         <label>Add Review: </label>
-        <textarea name="reviews"></textarea>
-        <label></label>
+        <input type="text" name="content">
+        <label>Rating:</label>
         <select name="rating">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -42,6 +37,38 @@
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
+        <input type="submit" value="Add Review">
     </form>
+    <% if (park.reviews.length) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Created At</th>
+                    <th>Created By</th>
+                    <th>Rating</th>
+                    <th>Review</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% park.reviews.forEach(function(p) { %>
+                    <tr>
+                        <td> <%= p.createdAt.toLocaleDateString() %> </td>
+                        <td><%= p.userName %> </td>
+                        <td> <%= p.rating %> </td>
+                        <td> <%= p.content %> </td>
+                        <td><form action="/reviews/<%= p._id %>?_method=PUT" method="POST">
+                            <input type="text" name="content" value="<%= p.content %> ">
+                            <button type="submit">Update Review</button>
+                        </form></td>
+                        <td><form action="/reviews/<%= p._id %>?_method=DELETE" method="POST">
+                            <button type="submit">Delete Review</button>
+                        </form></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <h4>No Reviews Submitted Yet</h4>
+    <% } %> 
 </body>
 </html>
