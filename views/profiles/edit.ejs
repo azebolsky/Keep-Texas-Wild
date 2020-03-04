@@ -16,7 +16,7 @@
         </nav>
     </header>
     <div>Edit below profile items:</div>
-    <form action="/profiles/<%= profile._id%>?_method=PUT" method="POST">
+    <form action="/profiles/show" method="POST">
         <label>Full Name:</label>
         <input type="text" name="fullName" value="<%= profile.fullName %>">
         <label>Phone Number:</label>
