@@ -9,6 +9,7 @@ module.exports = {
 function deleteReview(req, res) {
     Parks.findOne({'reviews._id': req.params.id}, function(err, park) {
         const reviewSubdoc = park.reviews.id(req.params.id);
+        if(!reviewSubdoc.createdBy.equals(req.user && req.user.id)) return res.redirect(`/parks/${park._id}`);
         reviewSubdoc.remove();
         park.save(function(err) {
             res.redirect(`/parks/${park._id}`);
@@ -19,6 +20,7 @@ function deleteReview(req, res) {
 function update(req, res) {
     Parks.findOne({'reviews._id': req.params.id}, function(err, park) {
         const reviewSubdoc = park.reviews.id(req.params.id);
+        if(!reviewSubdoc.createdBy.equals(req.user && req.user.id)) return res.redirect(`/parks/${park._id}`);
         req.body.createdBy = req.user._id;
         reviewSubdoc.content = req.body.content;
         park.save(function(err) {
