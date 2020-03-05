@@ -9,13 +9,13 @@
     <title>National Parks</title>
 </head>
 <body>
-    <header class="header">
+    <header class="index-header">
         <nav id="parks-nav">
           <h3>Texas Parks</h3>
           <a href="/logout">Logout</a>
         </nav>
     </header>
-    <table>
+    <table class="index-table">
         <thead>
             <tr>
                 <th>Rating</th>
@@ -23,13 +23,13 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="index-tbody">
             <% parks.forEach(function(p) { %>
                 <tr>
                     <% if (p.parkType === 'National') { %> 
                         <td></td>
                         <td><%= p.parkName %></td>
-                        <td><a href="/parks/<%= p._id %> ">Details and Reviews</a></td>
+                        <div class="details"><td><a href="/parks/<%= p._id %> ">Details and Reviews</a></td></div>
                     <% } %> 
                 </tr>
             <% }) %>

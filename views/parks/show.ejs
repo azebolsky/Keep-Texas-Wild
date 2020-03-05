@@ -11,7 +11,7 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
   <script defer src="/javascripts/script.js"></script>
-    <title>Park Details</title>
+    <title><%= park.parkName %></title>
 </head>
 <body>
     <header class="header">
@@ -64,28 +64,31 @@
                 <% park.reviews.forEach(function(p, idx) { %>
                     <% count+=p.rating %> 
                     <tr>
-                    <td> </td>
-                    <td> <%= p.createdAt.toLocaleDateString() %> </td>
-                    <td> <%= p.createdBy.name %> </td>
-                    <td> <%= p.rating %> </td>
-                    <td> <%= p.content %> </td>
-                        <td>
-                            <form class="edit-form" data-set="<%= idx %>" action="/reviews/<%= p._id %>?_method=PUT" method="POST">
-                                <select name="rating" value="<%= p.rating %>">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                                <input type="text" name="content" value="<%= p.content %> ">
-                                <input type="submit" value="Submit Change">
-                            </form>
-                            <button data-set="<%= idx %>" class="edit-submit" type="submit">Update Review</button>
-                        </td>
-                        <td><form action="/reviews/<%= p._id %>?_method=DELETE" method="POST">
-                            <button type="submit">Delete Review</button>
-                        </form></td>
+                        <% if (p.createdBy.equals(user && user._id)) { %> 
+                            <td> <%= p.createdAt.toLocaleDateString() %> </td>
+                            <td> <%= p.createdBy.name %> </td>
+                            <td> <%= p.rating %> </td>
+                            <td> <%= p.content %> </td>
+                            <td>
+                                <form class="edit-form" data-set="<%= idx %>" action="/reviews/<%= p._id %>?_method=PUT" method="POST">
+                                    <select name="rating" value="<%= p.rating %>">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                    <input type="text" name="content" value="<%= p.content %> ">
+                                    <input type="submit" value="Submit Change">
+                                </form>
+                                <button data-set="<%= idx %>" class="edit-submit" type="submit">Update Review</button>
+                            </td>
+                            <td>
+                                <form action="/reviews/<%= p._id %>?_method=DELETE" method="POST">
+                                    <button type="submit">Delete Review</button>
+                                </form>
+                            </td>
+                        <% } %> 
                     </tr>
                     <% }); %>
                     <td><%= (count / park.reviews.length).toFixed(1) %></td>
