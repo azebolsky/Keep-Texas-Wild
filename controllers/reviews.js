@@ -23,6 +23,7 @@ function update(req, res) {
         if(!reviewSubdoc.createdBy.equals(req.user && req.user.id)) return res.redirect(`/parks/${park._id}`);
         req.body.createdBy = req.user._id;
         reviewSubdoc.content = req.body.content;
+        reviewSubdoc.rating = req.body.rating;
         park.save(function(err) {
             res.redirect(`/parks/${park._id}`);
         });

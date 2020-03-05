@@ -11,16 +11,21 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
   <script defer src="/javascripts/script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title><%= park.parkName %></title>
 </head>
 <body>
-    <header class="header">
-        <nav id="parks-nav">
-          <h3><%= park.parkName %></h3>
-          <a class="header-links" href="/parks">All Parks</a>
-          <a class="header-links" href="/logout">Logout</a>
+    <div class="navbar-fixed">
+        <nav class="#0d47a1 blue darken-4">
+            <div class="nav-wrapper">
+                <ul>
+                    <li><%= park.parkName %></li>
+                    <li class="right"><a href="/logout">Logout</a></li>
+                    <li class="right"><a class="header-links" href="/parks">All Parks</a></li>
+                </ul>
+            </div>
         </nav>
-    </header>
+    </div>
     <section>
         <h3>Park Details</h3> 
             <img src="<%= park.image %>" alt="<%= park.parkName %>" width="300px" height="200px">
@@ -34,41 +39,43 @@
             <% if (park.hasPrimitiveCamping === true) { %>
                 <div><%= 'yes' %></div>
             <% } %> 
-            <div>See below reviews:</div>
+            <div>See below reviews or leave one yourself:</div>
     </section>
     <form action="/parks/<%= park._id %>/reviews" method="POST">
-        <label>Add Review: </label>
-        <input type="text" name="content">
+        <input type="text" name="content" placeholder="Add Review Here">
         <label>Rating:</label>
-        <select name="rating">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+        <div class="input-field col s12">
+            <select name="rating">
+                <option value="" disabled selected></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
         <input type="submit" value="Add Review">
     </form>
     <% if (park.reviews.length) { %>
         <table>
             <thead>
                 <tr>
+                    <th>Rating</th>
                     <th>Created At</th>
                     <th>Created By</th>
-                    <th>Rating</th>
                     <th>Review</th>
                 </tr>
             </thead>
-            <tbody class="body-edit">
+            <tbody>
                 <% let count = 0 %>
                 <% park.reviews.forEach(function(p, idx) { %>
                     <% count+=p.rating %> 
                     <tr>
+                        <td> <%= p.rating %> </td>
+                        <td> <%= p.createdAt.toLocaleDateString() %> </td>
+                        <td> <%= p.createdBy.name %> </td>
+                        <td> <%= p.content %> </td>
                         <% if (p.createdBy.equals(user && user._id)) { %> 
-                            <td> <%= p.createdAt.toLocaleDateString() %> </td>
-                            <td> <%= p.createdBy.name %> </td>
-                            <td> <%= p.rating %> </td>
-                            <td> <%= p.content %> </td>
                             <td>
                                 <form class="edit-form" data-set="<%= idx %>" action="/reviews/<%= p._id %>?_method=PUT" method="POST">
                                     <select name="rating" value="<%= p.rating %>">
@@ -78,7 +85,7 @@
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                     </select>
-                                    <input type="text" name="content" value="<%= p.content %> ">
+                                    <input type="text" name="content" value="<%= p.content %>">
                                     <input type="submit" value="Submit Change">
                                 </form>
                                 <button data-set="<%= idx %>" class="edit-submit" type="submit">Update Review</button>
@@ -91,7 +98,7 @@
                         <% } %> 
                     </tr>
                     <% }); %>
-                    <td><%= (count / park.reviews.length).toFixed(1) %></td>
+                    <td>Average Rating: <%= (count / park.reviews.length).toFixed(1) %></td>
                 </tbody>
         </table>
     <% } else { %>

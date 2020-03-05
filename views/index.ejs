@@ -13,7 +13,7 @@
       <div class="stripes"></div>
     </header>
     <div class="container">
-      <ul>
+      <ul class="log-screen">
         <h4>Login to Explore the Glorious Parks of Texas.</h4><br>
         <% if(user) { %>
             <a class="login" href="/logout">Logout</a>
@@ -21,6 +21,7 @@
             <a class="login" href="/auth/google">Login with Google</a>
         <% } %>
       </ul>
+      <div class="home-footer">
+        <%- include('./partials/footer') %>
+      </div>
     </div>
-  </body>
-</html>
