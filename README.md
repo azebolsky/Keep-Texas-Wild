@@ -10,3 +10,11 @@ Technologies used:
 * HTML
 * CSS
 * Materialize
+
+Check out [Keep Texas Wild](https://keep-texas-wild.herokuapp.com/)
+
+Icebox items: 
+* Include current weather conditions, park alerts, and maps of the park area using an API
+* Ability to rate specific campsites in each park
+* Allow users to submit photos from their park trips
+* Include a favorites button to allow users to store their favorite parks
