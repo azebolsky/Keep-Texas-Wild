@@ -17,8 +17,8 @@
     <header class="header">
         <nav id="parks-nav">
           <h3><%= park.parkName %></h3>
-          <a href="/parks">All Parks</a>
-          <a href="/logout">Logout</a>
+          <a class="header-links" href="/parks">All Parks</a>
+          <a class="header-links" href="/logout">Logout</a>
         </nav>
     </header>
     <section>
@@ -97,5 +97,4 @@
     <% } else { %>
         <h4>No Reviews Submitted Yet</h4>
     <% } %> 
-</body>
-</html>
+    <%- include('../partials/footer') %>

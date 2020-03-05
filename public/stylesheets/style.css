@@ -3,6 +3,23 @@
   margin: 0;
 }
 
+footer {
+  height: 10vh;
+}
+
+/* body {
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 80vh;
+} */
+
+.header {
+  height: 15vh;
+  background-color: rgb(30, 56, 121);
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid black;
+}
+
 .login {
   color: white;
   text-decoration: none;
@@ -12,7 +29,7 @@
   color: rgb(93, 93, 249);
 }
 
-h1 {
+#login-header {
   font-family: 'Squada One';
   font-size: 80px;
   font-weight: 300;
@@ -21,39 +38,42 @@ h1 {
   text-shadow: 0 4px 0 red;
 }
 
-h3 {
+/* h3 {
   font-family: 'Squada One';
   font-size: 40px;
   font-weight: 200;
   margin-left: 30px;
   color: rgb(237, 221, 156);
   text-shadow: 0 3px 0 red;
-}
+} */
 
-body {
-  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-.header {
-  height: 15vh;
-  background-color: rgb(30, 56, 121);
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  border-bottom: 3px solid black;
+.header-links {
+  color:rgb(237, 221, 156);
+  text-decoration: none; 
 }
 
 .index-header {
   height: 15vh;
   background-color: rgb(30, 56, 121);
+  border-bottom: 3px solid black;
   display: flex;
   align-items: center;
   flex-direction: row;
-  border-bottom: 3px solid black;
+  justify-content: space-between;
 }
 
-.index-table {
-  display: grid;
+#parks-header {
+  margin-left: 30px;
+  font-family: 'Squada One';
+  font-size: 40px;
+  font-weight: 200;
+}
+
+#index-nav {
+  margin-right: 30px;
+  margin-top: 42px;
+  margin-bottom: 42px;
+  margin: 42px 30px 42px 30px;
 }
 
 .container {
@@ -67,11 +87,21 @@ body {
   background-size: cover;
 }
 
-ul {
+/* ul {
   background-color: rgba(0, 0, 0, 0.7);
   color: rgb(237, 221, 156);
   padding: 60px 40px;
   text-align: center;
   border-radius: 5px;
   font-size: 30px;
+} */
+
+.image-index {
+  border-radius: 50%;
+  width: 100px;
+  height: 80px;
+}
+
+th {
+  font-size: 40px;
 }

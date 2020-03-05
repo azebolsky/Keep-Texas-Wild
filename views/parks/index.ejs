@@ -6,42 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>National Parks</title>
 </head>
 <body>
-    <header class="index-header">
-        <nav id="parks-nav">
-          <h3>Texas Parks</h3>
-          <a href="/logout">Logout</a>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul>
+                    <li class="left">Texas Parks</li>
+                    <li class="right"><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
         </nav>
-    </header>
-    <table class="index-table">
+    </div>
+    <table class="highlight" class="centered" class="responsive-table">
         <thead>
             <tr>
-                <th>Rating</th>
                 <th>National Parks</th>
                 <th></th>
             </tr>
         </thead>
-        <tbody class="index-tbody">
+        <tbody>
             <% parks.forEach(function(p) { %>
                 <tr>
                     <% if (p.parkType === 'National') { %> 
-                        <td></td>
+                        <td><img class="image-index" src="<%= p.image %>" alt="<%= p.parkName %>" width="300px" height="200px"></td>
                         <td><%= p.parkName %></td>
                         <div class="details"><td><a href="/parks/<%= p._id %> ">Details and Reviews</a></td></div>
                     <% } %> 
                 </tr>
             <% }) %>
+        </tbody>
+    <table class="highlight" class="centered" class="responsive-table">
+        <tbody>
             <tr>
-                <th>Rating</th>
                 <th>State Parks</th>
                 <th></th>
             </tr>
             <% parks.forEach(function(p) { %>
                 <tr>
                     <% if (p.parkType === 'State') { %> 
-                        <td></td>
+                        <td><img class="image-index" src="<%= p.image %>" alt="<%= p.parkName %>" width="300px" height="200px"></td>
                         <td><%= p.parkName %></td>
                         <td><a href="/parks/<%= p._id %> ">Details and Reviews</a></td>
                     <% } %> 
@@ -49,5 +56,4 @@
             <% }) %>
         </tbody>
     </table>
-</body>
-</html>
+<%- include('../partials/footer') %>
