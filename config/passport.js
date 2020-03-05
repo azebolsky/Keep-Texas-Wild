@@ -20,18 +20,9 @@ passport.use(new GoogleStrategy({
               email: profile.emails[0].value,
               googleId: profile.id
           });
-          const profile = new Profile({
-              firstName: profile.displayName,
-              email: profile.emails[0].value,
-              googleId: profile.id
-          });
           newUser.save(function(err) {
               if (err) return cb(err);
               return cb(null, newUser);
-          });
-          profile.save(function(err) {
-            if (err) return cb(err);
-            return cb(null, profile);
           });
         }
     });

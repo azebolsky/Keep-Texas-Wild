@@ -23,6 +23,7 @@
     </header>
     <section>
         <h3>Park Details</h3> 
+            <img src="<%= park.image %>" alt="<%= park.parkName %>" width="300px" height="200px">
             <div>Lake: </div>
             <% if (park.hasLake === true) { %>
                 <div><%= 'yes' %></div>
@@ -63,6 +64,7 @@
                 <% park.reviews.forEach(function(p, idx) { %>
                     <% count+=p.rating %> 
                     <tr>
+                    <td> </td>
                     <td> <%= p.createdAt.toLocaleDateString() %> </td>
                     <td> <%= p.createdBy.name %> </td>
                     <td> <%= p.rating %> </td>
@@ -87,7 +89,7 @@
                     </tr>
                     <% }); %>
                     <td><%= (count / park.reviews.length).toFixed(1) %></td>
-            </tbody>
+                </tbody>
         </table>
     <% } else { %>
         <h4>No Reviews Submitted Yet</h4>

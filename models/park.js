@@ -35,6 +35,9 @@ const parkSchema = new Schema({
         type: String,
         enum: ['National', 'State']
     },
+    image: {
+        type: String
+    },
     reviews: [reviewSchema],
     favorites: [{
         type: Schema.Types.ObjectId,
