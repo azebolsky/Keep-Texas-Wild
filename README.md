@@ -15,6 +15,8 @@ In Keep Texas Wild, you can view details of each park, rate parks, and create re
 ## Technologies used: 
 * MongoDB
 * Mongoose
+* Express
+* NodeJS
 * Javascript
 * HTML
 * CSS
