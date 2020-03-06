@@ -6,6 +6,12 @@ In Keep Texas Wild, you can view details of each park, rate parks, and create re
 ## Login Page
 ![login](https://i.imgur.com/yVA8y3y.jpg "Login Page")
 
+## Parks Page
+![Parks](https://i.imgur.com/HknDRik.png "Parks Page")
+
+## Park Details Page
+![Park Detail](https://i.imgur.com/DSteiZ3.png "Park Details Page")
+
 Technologies used: 
 * MongoDB
 * Mongoose
