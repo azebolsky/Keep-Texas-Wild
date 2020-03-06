@@ -25,6 +25,9 @@ In Keep Texas Wild, you can view details of each park, rate parks, and create re
 ## Deployed App: 
 [Keep Texas Wild](https://keep-texas-wild.herokuapp.com/)
 
+## Trello Board:
+[Trello Board](https://trello.com/b/vRajFK69/park-texas)
+
 ## Icebox items: 
 * Include current weather conditions, park alerts, and maps of the park area using an API
 * Ability to rate specific campsites in each park
