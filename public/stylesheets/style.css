@@ -107,8 +107,16 @@ th, tbody {
   font-size: 20px;
 }
 
+#cover-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 table {
   text-align: center;
+  width: 80% !important;
 }
 
 .home-footer {
