@@ -3,6 +3,9 @@
 Welcome to the National Parks of Texas (only 2) and 5 Texas State Parks relative to the DFW area. 
 In Keep Texas Wild, you can view details of each park, rate parks, and create reviews to express how you really feel about a certain park.
 
+## Login Page
+![login](https://i.imgur.com/yVA8y3y.jpg "Login Page")
+
 Technologies used: 
 * MongoDB
 * Mongoose
@@ -11,7 +14,7 @@ Technologies used:
 * CSS
 * Materialize
 
-Check out [Keep Texas Wild](https://keep-texas-wild.herokuapp.com/)
+Deployed App: [Keep Texas Wild](https://keep-texas-wild.herokuapp.com/)
 
 Icebox items: 
 * Include current weather conditions, park alerts, and maps of the park area using an API

@@ -17,14 +17,16 @@ footer {
 
 .log-screen {
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 50px 100px 50px 100px;
+  padding: 75px 100px 75px 100px;
+  border-radius: 5px;
   font-size: 25px;
   text-align: center;
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 h4 {
-  color: rgb(237, 221, 156);;
+  color: rgb(237, 221, 156);
+  font-size: 30px;
 }
 
 .login {
@@ -97,15 +99,11 @@ h4 {
 
 .image-index {
   border-radius: 2%;
-  width: 100px;
-  height: 80px;
+  width: 150px;
+  height: 110px;
 }
 
-th {
-  font-size: 20px;
-}
-
-tbody {
+th, tbody {
   font-size: 20px;
 }
 
@@ -119,15 +117,49 @@ table {
   color: white;
 }
 
-.details {
-  text-align: center;
-  background-color: red !important;
-}
-
-table.highlight>tbody>tr:hover {
+table.highlight1>tbody>tr:hover, table.highlight2>tbody>tr:hover {
   background-color: rgb(228, 217, 217) !important;
 }
 
 .right {
   font-size: 20px;
+}
+
+.highlight1 {
+  margin-bottom: 50px;
+}
+
+.logout {
+  font-size: 25px;
+  margin-right: 20px;
+  color: rgb(237, 221, 156);
+}
+
+.show-img {
+  margin-top: 10px;
+  width: 650px;
+  height: 450px;
+}
+
+.park-info {
+  font-size: 20px;
+  margin-right: 30px;
+}
+
+.baby-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.details {
+  font-size: 15px;
+}
+
+.additional {
+  border: 5px solid black;
+  padding-right: 30px;
+  padding-left: 30px;
+  text-align: center;
 }

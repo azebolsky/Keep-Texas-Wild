@@ -7,54 +7,57 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>National Parks</title>
 </head>
-<table/table>
+<table>
     <div class="navbar-fixed">
         <nav class="#0d47a1 blue darken-4">
             <div class="nav-wrapper">
                 <ul>
-                    <li class="left">Texas Parks</li>
-                    <li class="right"><a href="/logout">Logout</a></li>
+                    <li class="left">Parks of Texas</li>
+                    <li class="right"><a class="logout" href="/logout">Logout</a></li>
                 </ul>
             </div>
         </nav>
     </div>
-    <table class="highlight" class="centered" class="responsive-table">
-        <thead>
-            <tr>
-                <th>National Parks</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% parks.forEach(function(p) { %>
+    <div id="cover-container">
+        <table class="highlight1" class="centered" class="responsive-table">
+            <thead>
                 <tr>
-                    <% if (p.parkType === 'National') { %> 
-                        <td><img class="image-index" src="<%= p.image %>" alt="<%= p.parkName %>" width="300px" height="200px"></td>
-                        <td><%= p.parkName %></td>
-                        <div class="details"><td><a href="/parks/<%= p._id %> ">Details and Reviews</a></td></div>
-                    <% } %> 
+                    <th>National Parks</th>
                 </tr>
-            <% }) %>
-        </tbody>
-    </table>
-    <table class="highlight" class="centered" class="responsive-table">
-        <thead>
-            <tr>
-                <th>State Parks</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% parks.forEach(function(p) { %>
+            </thead>
+            <tbody>
+                <% parks.forEach(function(p) { %>
+                    <tr>
+                        <% if (p.parkType === 'National') { %> 
+                            <td><img class="image-index" src="<%= p.image %>" alt="<%= p.parkName %>" width="300px" height="200px"></td>
+                            <td><%= p.parkName %></td>
+                            <div class="details"><td><a href="/parks/<%= p._id %> ">Details and Reviews</a></td></div>
+                        <% } %> 
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <table class="highlight2" class="centered" class="responsive-table">
+            <thead>
                 <tr>
-                    <% if (p.parkType === 'State') { %> 
-                        <td><img class="image-index" src="<%= p.image %>" alt="<%= p.parkName %>" width="300px" height="200px"></td>
-                        <td><%= p.parkName %></td>
-                        <div class="details"><td><a href="/parks/<%= p._id %> ">Details and Reviews</a></td></div>
-                    <% } %> 
+                    <th>State Parks</th>
                 </tr>
-            <% }) %>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <% parks.forEach(function(p) { %>
+                    <tr>
+                        <% if (p.parkType === 'State') { %> 
+                            <td><img class="image-index" src="<%= p.image %>" alt="<%= p.parkName %>" width="300px" height="200px"></td>
+                            <td><%= p.parkName %></td>
+                            <div class="details"><td><a href="/parks/<%= p._id %> ">Details and Reviews</a></td></div>
+                        <% } %> 
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+</div>
 <%- include('../partials/footer') %>

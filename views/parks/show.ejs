@@ -10,6 +10,7 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script defer src="/javascripts/script.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title><%= park.parkName %></title>
@@ -19,31 +20,40 @@
         <nav class="#0d47a1 blue darken-4">
             <div class="nav-wrapper">
                 <ul>
-                    <li><%= park.parkName %></li>
-                    <li class="right"><a href="/logout">Logout</a></li>
-                    <li class="right"><a class="header-links" href="/parks">All Parks</a></li>
+                    <li class="left"><%= park.parkName %></li>
+                    <li class="right"><a class="logout" href="/logout">Logout</a></li>
+                    <li class="right"><a class="logout" href="/parks">All Parks</a></li>
                 </ul>
             </div>
         </nav>
     </div>
-    <section>
-        <h3>Park Details</h3> 
-            <img src="<%= park.image %>" alt="<%= park.parkName %>" width="300px" height="200px">
-            <div>Lake: </div>
-            <% if (park.hasLake === true) { %>
-                <div><%= 'yes' %></div>
-            <% } %> 
-            <div>Amount of Trails: </div>
-            <div><%= park.numTrails %></div>
-            <div>Primitive Camping: </div>
-            <% if (park.hasPrimitiveCamping === true) { %>
-                <div><%= 'yes' %></div>
-            <% } %> 
-            <div>See below reviews or leave one yourself:</div>
+    <section class="park-info">
+        <div class="baby-container">
+            <div>
+                <img class="show-img" src="<%= park.image %>" alt="<%= park.parkName %>" width="300px" height="200px">
+            </div>
+            <div class="additional">
+                <h3>Park Details:</h3>
+                <div> 
+                    <% if (park.hasLake === true) { %>
+                        <div><strong>Lake:</strong><%= ' Yes' %></div>
+                    <% } %>
+                </div>
+                <div><strong>Amount of Trails: </strong><%= park.numTrails %></div>
+                <% if (park.hasPrimitiveCamping === true) { %>
+                    <div><strong>Primitive Camping:</strong><%= ' Yes' %></div>
+                <% } %> 
+                <div><strong>Want to leave a review?  Add one below!</strong><br><br></div>
+            </div>
+        </div>
+        <div class="details">
+            <h5>Brief History:</h5>
+            <%= park.details %><br>
+        </div>
     </section>
     <form action="/parks/<%= park._id %>/reviews" method="POST">
         <input type="text" name="content" placeholder="Add Review Here">
-        <label>Rating:</label>
+        <label>Click below to rate:</label>
         <div class="input-field col s12">
             <select name="rating">
                 <option value="" disabled selected></option>
@@ -61,8 +71,8 @@
             <thead>
                 <tr>
                     <th>Rating</th>
-                    <th>Created At</th>
-                    <th>Created By</th>
+                    <th>Date</th>
+                    <th>User</th>
                     <th>Review</th>
                 </tr>
             </thead>
@@ -88,7 +98,7 @@
                                     <input type="text" name="content" value="<%= p.content %>">
                                     <input type="submit" value="Submit Change">
                                 </form>
-                                <button data-set="<%= idx %>" class="edit-submit" type="submit">Update Review</button>
+                                <button id="body-edit" data-set="<%= idx %>" class="edit-submit" type="submit">Update Review</button>
                             </td>
                             <td>
                                 <form action="/reviews/<%= p._id %>?_method=DELETE" method="POST">

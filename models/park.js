@@ -38,6 +38,9 @@ const parkSchema = new Schema({
     image: {
         type: String
     },
+    details: {
+        type: String
+    },
     reviews: [reviewSchema],
     favorites: [{
         type: Schema.Types.ObjectId,
